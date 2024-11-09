@@ -34,8 +34,10 @@ main();
 // });
 
 
-app.get("/", (req, res) => {
-    res.render("index.ejs");
+app.get("/", async (req, res) => {
+    let students = await Student.find();
+    console.log(students);
+    res.render("index.ejs", {students});
 });
 
 app.get("/students", async (req, res) => {
