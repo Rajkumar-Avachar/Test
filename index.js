@@ -9,6 +9,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// require('dotenv').config({path: __dirname + '/.env'})
 
 async function main() {
     const mongoURI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/college';
@@ -20,20 +21,17 @@ async function main() {
         console.error("Error connecting to MongoDB:", err);
     }
 }
-
 main();
 
+// let std = new Student({
+//     name: "Rajkumar Avachar",
+//     age: 21,
+//     city: "Malkapur"
+// });
 
-
-let std = new Student({
-    name: "Rajkumar Avachar",
-    age: 21,
-    city: "Malkapur"
-});
-
-std.save().then((result) => {
-    console.log(result);
-});
+// std.save().then((result) => {
+//     console.log(result);
+// });
 
 
 app.get("/", (req, res) => {
