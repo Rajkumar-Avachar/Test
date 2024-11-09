@@ -38,8 +38,8 @@ app.get("/", (req, res) => {
     res.render("index.ejs");
 });
 
-app.get("/students", (req, res) => {
-    let students = Student.find();
+app.get("/students", async (req, res) => {
+    let students = await Student.find();
     res.render("students.ejs", { students });
 });
 
