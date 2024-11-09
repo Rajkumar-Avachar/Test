@@ -34,18 +34,12 @@ main();
 // });
 
 
-app.get("/", async (req, res) => {
-    try {
-        let students = await Student.find();
-        console.log(students);
-    } catch (err) {
-        console.log(err);
-    }
-    res.render("index.ejs", { students });
+app.get("/", (req, res) => {
+    res.render("index.ejs");
 });
 
-app.get("/students", async (req, res) => {
-    let students = await Student.find();
+app.get("/students", (req, res) => {
+    let students = Student.find();
     res.render("students.ejs", { students });
 });
 
